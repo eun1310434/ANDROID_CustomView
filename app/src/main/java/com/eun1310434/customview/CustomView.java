@@ -68,7 +68,14 @@ public class CustomView extends View {
 
 	public CustomView(Context context, @Nullable AttributeSet attrs, Paint paint) {
 		super(context, attrs);
-		this.paint = paint;
+		setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+
+		paint = new Paint();
+		paint.setColor(getResources().getColor(R.color.colorAccent));
+
+		paint_txt  = new Paint();
+		paint_txt.setColor(Color.WHITE);
+		paint_txt.setTextSize(80);
 	}
 
 	//그리기 - 그리기가 새롭게 정의되면 invalidate();를 호출시 업데이트 됨
@@ -95,15 +102,17 @@ public class CustomView extends View {
 
 	//터치 이벤트
 	public boolean onTouchEvent(MotionEvent event) {
+
+		int action = event.getAction();
 		touchPointX = (int) event.getX();
 		touchPointY = (int) event.getY();
 
-		if(event.getAction() == MotionEvent.ACTION_UP){
+		if(action == MotionEvent.ACTION_UP){
 			Log.e("onTouchEvent","ACTION_MOVE");
 			finishPointX = touchPointX;
 			finishPointY = touchPointY;
 			paint.setColor(getResources().getColor(R.color.colorAccent));
-		}else if (event.getAction() == MotionEvent.ACTION_DOWN) {
+		}else if (action == MotionEvent.ACTION_DOWN) {
 			Log.e("onTouchEvent","ACTION_DOWN");
 			startPointX = touchPointX;
 			startPointY = touchPointY;
@@ -111,7 +120,7 @@ public class CustomView extends View {
 			finishPointY = 0;
 			paint.setColor(Color.RED);
 
-		}else if(event.getAction() == MotionEvent.ACTION_MOVE){
+		}else if(action == MotionEvent.ACTION_MOVE){
 			Log.e("onTouchEvent","ACTION_MOVE");
 		}
 
