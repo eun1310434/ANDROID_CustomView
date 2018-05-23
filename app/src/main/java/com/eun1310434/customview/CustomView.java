@@ -1,18 +1,25 @@
 /*=====================================================================
-□ Infomation
+□ INFORMATION
   ○ Data : 09.03.2018
   ○ Mail : eun1310434@naver.com
   ○ Blog : https://blog.naver.com/eun1310434
   ○ Reference : Do it android app Programming
 
-□ Function
-  ○ 뷰를 상속하여 만든 뷰
+
+□ FUNCTION
+  ○ 뷰를 상속하여 새로운 뷰를 만들기
+     - XML레이아웃으로 만든 것이 아닌 직접 만든 뷰 설정
   ○ 터치 이벤트
      - 터치한 위치에 원그리기
      - 처음 터치한 좌표, 터치 중인 좌표, 마지막 터치한 좌표를 출력
 
-□ Study
-  ○
+□ STUDY
+  ○ View
+     - This class represents the basic building block for user interface components.
+       A View occupies a rectangular area on the screen and is responsible for drawing and event handling.
+       View is the base class for widgets, which are used to create interactive UI components (buttons, text fields, etc.).
+       The ViewGroup subclass is the base class for layouts, which are invisible containers that hold other Views (or other ViewGroups) and define their layout properties.
+
 =====================================================================*/
 
 package com.eun1310434.customview;
@@ -49,8 +56,6 @@ public class CustomView extends View {
 
 	int finishPointX = 0; //터치 종료 점X
 	int finishPointY = 0; //터치 종료 점Y
-
-
 
 
 	public CustomView(Context context) {
